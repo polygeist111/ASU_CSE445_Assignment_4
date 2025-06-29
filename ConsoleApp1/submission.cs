@@ -3,6 +3,7 @@ using System.Xml.Schema;
 using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 
@@ -25,14 +26,15 @@ namespace ConsoleApp1
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Validating Correct File");
             string result = Verification(xmlURL, xsdURL);
             Console.WriteLine(result);
 
-
+            Console.WriteLine("Validating Error File");
             result = Verification(xmlErrorURL, xsdURL);
             Console.WriteLine(result);
 
-
+            Console.WriteLine("Parsing Correct File to JSON");
             result = Xml2Json(xmlURL);
             Console.WriteLine(result);
         }
@@ -51,14 +53,30 @@ namespace ConsoleApp1
             }*/
             XmlSchemaSet schema = new XmlSchemaSet();
             // assumes namespace is folder xsd is in (not ideal, but necessary due to assignment constraints)
-            Console.WriteLine(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")));
-            Console.WriteLine(xsdUrl);
-            schema.Add(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")), xsdUrl);
-            XDocument xml = XDocument.Load(xmlUrl);
+            //Console.WriteLine(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")));
+            //Console.WriteLine(xsdUrl);
             string validationOut = "No Error";
-            xml.Validate(schema, (o, e) =>
+            schema.Add(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")), xsdUrl);
+            XmlDocument xml = new XmlDocument();
+            try {
+                xml.Load(xmlUrl);
+            } catch (Exception e) {
+                validationOut = "Error: " + e.Message;
+                return validationOut;
+            }
+            xml.Schemas = schema;
+            /*xml.Validate(schema, (o, e) =>
             {
                 validationOut = e.Message;
+            });*/
+            xml.Validate((o, e) => {
+                if (e.Severity == XmlSeverityType.Error) {
+                    validationOut = "Error: ";
+                }
+                else if (e.Severity == XmlSeverityType.Warning) {
+                    validationOut = "Warning: ";
+                }
+                validationOut += e.Message;
             });
             return validationOut;
 
@@ -70,9 +88,22 @@ namespace ConsoleApp1
             XmlDocument xml = new XmlDocument();
             xml.Load(xmlUrl);
             string jsonText = JsonConvert.SerializeXmlNode(xml);
-            // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
-            return jsonText;
+            jsonText = jsonText.Replace('@', '_'); // replaces attribute @ signs with underscores for grading criteria compliance
 
+            JObject jsonObj = JObject.Parse(jsonText);
+
+            jsonObj.Property("?xml")?.Remove();
+
+            foreach (var firstChild in jsonObj.Root.Children()) {
+                ((JObject)firstChild.Last).Property("_xmlns")?.Remove();
+                ((JObject)firstChild.Last).Property("_xmlns:xsi")?.Remove();
+                ((JObject)firstChild.Last).Property("_xsi:schemaLocation")?.Remove();
+            }
+
+            // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
+            //Console.WriteLine(jsonObj.Root.ToString());
+
+            return jsonObj.ToString();
         }
     }
 
