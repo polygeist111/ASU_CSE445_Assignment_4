@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+    <xsd:element name="Address">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Number" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="Street" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="City" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="State" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="Zip" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="NearestAirport" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Phone" type="xsd:string"/>
+    <!-- version to confine phone number to regex
+        <xsd:element name="Phone">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:element>     
+    -->
+
+    <xsd:element name="Name" type="xsd:string"/>
+
+    <xsd:element name="Hotel">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Name" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="Phone" minOccurs="1" maxOccurs="unbounded"/>
+                <xsd:element name="Address" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="Rating" type="xsd:double" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Hotels">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Hotel" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
