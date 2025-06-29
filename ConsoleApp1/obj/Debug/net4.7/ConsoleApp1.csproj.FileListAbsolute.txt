@@ -1,0 +1,8 @@
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.csproj.AssemblyReference.cache
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.exe.config
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.AssemblyInfoInputs.cache
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.AssemblyInfo.cs
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Documents\Schoolwork\Year_4\CSE_445\Assignment 4\ConsoleApp1\obj\Debug\net4.7\ConsoleApp1.sourcelink.json
