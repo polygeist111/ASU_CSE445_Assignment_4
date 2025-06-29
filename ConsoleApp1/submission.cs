@@ -40,35 +40,39 @@ namespace ConsoleApp1
         }
 
         // Q2.1
-        public static string Verification(string xmlUrl, string xsdUrl)
-        {
-            /*using (var client = new HttpClient()) {
-                HttpResponseMessage response = await client.GetAsync(xmlUrl);
-                if (response.IsSuccessStatusCode) {
-                    string responseBody = await response.Content.ReadAsStringAsync();
-                } else {
-                    // Handle the error
-                    return response.ReasonPhrase.ToString();
-                }
-            }*/
-            XmlSchemaSet schema = new XmlSchemaSet();
-            // assumes namespace is folder xsd is in (not ideal, but necessary due to assignment constraints)
-            //Console.WriteLine(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")));
-            //Console.WriteLine(xsdUrl);
+        public static string Verification(string xmlUrl, string xsdUrl) {
+
+            // Create output string and schema/xml objects
             string validationOut = "No Error";
-            schema.Add(xsdUrl.Substring(0, xsdUrl.LastIndexOf("/")), xsdUrl);
+            XmlSchemaSet schema = new XmlSchemaSet();
             XmlDocument xml = new XmlDocument();
-            try {
+
+            // Attempt to load the XML doc at provided URL, return any error thrown as string
+            // Load() method only checks for syntax validity, not Schema compliance
+            try
+            {
                 xml.Load(xmlUrl);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 validationOut = "Error: " + e.Message;
                 return validationOut;
             }
-            xml.Schemas = schema;
-            /*xml.Validate(schema, (o, e) =>
+
+            // Attempt to load the XML schema at provided URL 
+            // (determine namespace from child namespace (e.g. Hotels), it's more reliable than string manipulation on the schema URL, but admittedly only works with one child)
+            // Add() method should only fail if there's an issue with the Get request, no validity checks
+            try
             {
-                validationOut = e.Message;
-            });*/
+                schema.Add(xml.LastChild.NamespaceURI, xsdUrl);
+            }
+            catch (Exception e)
+            {
+                return "Error: " + e.Message;
+            }
+            xml.Schemas = schema;
+
+            // Validates the XML file against the provided schema, indicating any errors or warnings
             xml.Validate((o, e) => {
                 if (e.Severity == XmlSeverityType.Error) {
                     validationOut = "Error: ";
@@ -83,15 +87,19 @@ namespace ConsoleApp1
             //return "No Error" if XML is valid. Otherwise, return the desired exception message.
         }
 
-        public static string Xml2Json(string xmlUrl)
-        {
+        public static string Xml2Json(string xmlUrl) {
+            // Locate the XML document at the provided URL and convert it to a JSON string
             XmlDocument xml = new XmlDocument();
             xml.Load(xmlUrl);
             string jsonText = JsonConvert.SerializeXmlNode(xml);
-            jsonText = jsonText.Replace('@', '_'); // replaces attribute @ signs with underscores for grading criteria compliance
 
+            // Replace attribute @ signs with underscores for grading criteria compliance
+            jsonText = jsonText.Replace('@', '_');
+            
+            // Convert JSON string to JObj for further cleaning of data
             JObject jsonObj = JObject.Parse(jsonText);
 
+            // Remove all properties not directly describing relevant data (i.e. all properties necessary for XML interpretation)
             jsonObj.Property("?xml")?.Remove();
 
             foreach (var firstChild in jsonObj.Root.Children()) {
@@ -101,8 +109,6 @@ namespace ConsoleApp1
             }
 
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
-            //Console.WriteLine(jsonObj.Root.ToString());
-
             return jsonObj.ToString();
         }
     }
