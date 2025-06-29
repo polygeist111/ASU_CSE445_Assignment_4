@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<Hotels xmlns="https://polygeist111.github.io/ASU_CSE445_Assignment_4/hotels.xsd">
+    
+    <Hotel Rating="4.2">
+        <Name>Westin</Name>
+        <Phone>480-968-8885</Phone>
+        <Phone>800-937-8461</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>11</Number>
+            <Street>E. 7th St.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.3">
+        <Name>Hyatt Place Tempe</Name>
+        <Phone>480-207-1578</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>601</Number>
+            <Street>E 6th St.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.5">
+        <Name>Omni</Name>
+        <Phone>602-794-8600</Phone>
+        <Phone>972-871-5600</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>7</Number>
+            <Street>E University Dr.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.3">
+        <Name>Marriott Resort at The Buttes</Name>
+        <Phone>602-225-9000</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>2000</Number>
+            <Street>W Westcourt Way</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85282</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel>
+        <Name>Canopy</Name>
+        <Phone>480-968-6800</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>108</Number>
+            <Street>E University Dr.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.4">
+        <Name>Tempe Mission Palms</Name>
+        <Phone>480-894-1400</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>60</Number>
+            <Street>E 5th St.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.0">
+        <Name>Aloft</Name>
+        <Phone>480-621-3300</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>951</Number>
+            <Street>E Playa Del Norte Dr.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85288</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.2">
+        <Name>Hyatt House</Name>
+        <Phone>480-207-1578</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>601</Number>
+            <Street>E 6th St.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel>
+        <Name>SpringHill Suites</Name>
+        <Phone>480-968-8222</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>1601</Number>
+            <Street>W Rio Salado Pkwy.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.2">
+        <Name>Graduate</Name>
+        <Phone>480-967-9431</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>225</Number>
+            <Street>E Apache Blvd.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+    <Hotel Rating="4.2">
+        <Name>Moxy</Name>
+        <Phone>480-968-3451</Phone>
+        <Phone>800-218-9316</Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number>1333</Number>
+            <Street>S Rural Rd.</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+    </Hotel>
+
+
+    <!--Copy/paste template-->
+    <Hotel Rating="">
+        <Name></Name>
+        <Phone></Phone>
+        <Address NearestAirport="Sky Harbor">
+            <Number></Number>
+            <Street></Street>
+            <City></City>
+            <State></State>
+            <Zip></Zip>
+        </Address>
+    </Hotel>
+</Hotels>
