@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="https://polygeist111.github.io/ASU_CSE445_Assignment_4"
+            xmlns="https://polygeist111.github.io/ASU_CSE445_Assignment_4"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
 
 
     <xsd:element name="Address">

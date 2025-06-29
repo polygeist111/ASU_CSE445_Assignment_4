@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Hotels xmlns="https://polygeist111.github.io/ASU_CSE445_Assignment_4"
+<Hotel xmlns="https://polygeist111.github.io/ASU_CSE445_Assignment_4"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="https://polygeist111.github.io/ASU_CSE445_Assignment_4 https://polygeist111.github.io/ASU_CSE445_Assignment_4/Hotels.xsd">
     
@@ -19,7 +19,7 @@
     <Hotel Rating="4.3">
         <Name>Hyatt Place Tempe</Name>
         <Phone>480-207-1578</Phone>
-        <Address NearestAirport="Sky Harbor">
+        <Address>
             <Number>601</Number>
             <Street>E 6th St.</Street>
             <City>Tempe</City>
@@ -79,7 +79,6 @@
 
     <Hotel Rating="4.0">
         <Name>Aloft</Name>
-        <Phone>480-621-3300</Phone>
         <Address NearestAirport="Sky Harbor">
             <Number>951</Number>
             <Street>E Playa Del Norte Dr.</Street>
@@ -98,7 +97,6 @@
             <City>Tempe</City>
             <State>AZ</State>
             <Zip>85281</Zip>
-        </Address>
     </Hotel>
 
     <Hotel>
@@ -126,6 +124,7 @@
     </Hotel>
 
     <Hotel Rating="4.2">
+        <Name>Moxy</Name>
         <Name>Moxy</Name>
         <Phone>480-968-3451</Phone>
         <Phone>800-218-9316</Phone>
